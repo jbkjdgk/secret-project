@@ -1,19 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <title> My first live website </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Secret Project</title>
     <style>
-      body { font-family: Arial,sans-serif; text-align: center; padding: 50px; background: #f0f8ff;}
-      h1 { color: #2c3e50;}
-      .box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: inline-block;}
+        /* Base Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh; /* Changed to min-height for scrolling if needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.5s ease-in-out;
+            background-color: #f093fb; /* Fallback color */
+        }
+
+        /* Glassmorphism Card */
+        .container {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            color: white;
+            max-width: 600px; /* Made wider to fit images */
+            width: 90%;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 25px;
+        }
+
+        /* Photo Gallery Styling */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap; /* Allows images to stack on mobile */
+            margin-top: 20px;
+        }
+
+        .photo-frame {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 8px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            width: 45%; /* Fits two side-by-side */
+            min-width: 200px;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.05) rotate(1deg); /* Slight zoom and tilt on hover */
+            background: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .date {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            font-style: italic;
+            opacity: 0.8;
+        }
     </style>
-  </head>
-  <body> 
-    <div class="box">
-      <h1> Hello Bro </h1>
-      <p> This is my first webpage live on Github Pages! </p>
-      <p> Made on january 2026 </p>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome Friends</h1>
+        <p>This is my first webpage live on Github Pages!</p>
+        
+        <div class="gallery">
+            <div class="photo-frame">
+                <img src="1000034745.jpg" alt="Group Photo 1">
+            </div>
+            
+            <div class="photo-frame">
+                <img src="1000034746.jpg" alt="Group Photo 2">
+            </div>
+        </div>
+
+        <div class="date">Made in January 2026</div>
     </div>
-  </body>
+
+    <script>
+        // Function to generate a random gradient background
+        function setRandomGradient() {
+            const colors = [
+                ['#ff9a9e', '#fecfef'],
+                ['#a1c4fd', '#c2e9fb'],
+                ['#84fab0', '#8fd3f4'],
+                ['#667eea', '#764ba2'],
+                ['#f093fb', '#f5576c'],
+                ['#43e97b', '#38f9d7']
+            ];
+            
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            const selectedColors = colors[randomIndex];
+            
+            document.body.style.background = `linear-gradient(135deg, ${selectedColors[0]} 0%, ${selectedColors[1]} 100%)`;
+        }
+
+        window.onload = setRandomGradient;
+    </script>
+</body>
 </html>
